@@ -2,12 +2,12 @@ name: Train Model
 on: [push]
 jobs:
   train-model:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest #Betriebssystem für den Job
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v3 #Checke den Code aus dem Repository aus
+      - uses: actions/setup-python@v4 #Richte die Python-Umgebung ein
         with:
-          python-version: "3.9" # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          python-version: "3.14" # Version range or exact version of a Python version to use, using SemVer's version range syntax
 
       - run: pip install -r requirements.txt
         name: Install Requirements
@@ -19,7 +19,7 @@ jobs:
         name: Train Model
 
       - uses: actions/upload-artifact@v4
-        name: Upload trained model
+        name: Upload trained model 
         with:
           name: baummethoden_lr.pickle
           path: data/models/baummethoden_lr.pickle
