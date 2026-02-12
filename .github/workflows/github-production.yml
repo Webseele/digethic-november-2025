@@ -4,11 +4,16 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   train-model:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3 # Checkout the repository = clone
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Switch to heroku branch #damit wir nicht in den main branch pushen/überschreiben
         shell: bash
         run: |
