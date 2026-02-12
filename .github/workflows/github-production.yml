@@ -28,7 +28,7 @@ jobs:
       - name: Train model   # train.py ausführen
         run: python train.py
       - name: Upload trained model # lade das trainierte Modell als Artifact hoch
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: baummethoden.pickle
           path: models/baummethoden.pickle
